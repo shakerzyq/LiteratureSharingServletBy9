@@ -1,6 +1,8 @@
 package com.example.demo.dao.zyq;
 
-import com.example.demo.domain.Person;
+import com.example.demo.domain.PwdProject;
+import com.example.demo.domain.User;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Component;
@@ -15,15 +17,22 @@ import org.springframework.stereotype.Component;
 @Component
 @Mapper
 public interface UserDao {
-    @Select("select * from user where account=#{id}")
-    public Person findUserByid(String id);
+    //验证是否存在账号
+    @Select("select * from user where userid=#{id}")
+    public User findUserByid(String id);
 
   /*  @Select("delete from department where account=#{id}")
     public int deleteUserByid(String id);*/
 
-    /*@Insert("insert into user(account,password,username) values(#{account,password,username})")
-    public int insertUser(Person person);
+    //插入注册信息
+    @Insert("insert into user (userid,username,password,birthday,sex,autograph) values(#{userid},#{username},#{password},#{birthday},#{sex},#{autograph})")
+    public int insertUser(User user);
 
-    @Update("update user set username=#{username} where account=#{account}")
+    //插入密保数据
+    @Insert("insert into pwdprotect (question1,answer1,question2,answer2,userid) values(#{question1},#{answer1},#{question2},#{answer2},#{userid})")
+    int insertPwdProtect(PwdProject pwdProject);
+
+
+    /*@Update("update user set username=#{username} where account=#{account}")
     public int updateUser(Person person);*/
 }

@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.domain.Person;
+import com.example.demo.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,10 +25,10 @@ public class HelloController {
     JdbcTemplate jdbcTemplate;
 
 
-    Person person = new Person();
+    User person = new User();
 
     @RequestMapping("/hello")
-    public Person hello(){
+    public User hello(){
         person.setPassword("123");
         person.setUsername("rick");
         return person;
