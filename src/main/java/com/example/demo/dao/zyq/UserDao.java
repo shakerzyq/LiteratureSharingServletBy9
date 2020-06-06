@@ -21,6 +21,9 @@ public interface UserDao {
     @Select("select * from user where userid=#{id}")
     public User findUserByid(String id);
 
+    @Select("select * from pwdprotect where userid=#{id}")
+    public PwdProject findQuestionByid(String id);
+
   /*  @Select("delete from department where account=#{id}")
     public int deleteUserByid(String id);*/
 

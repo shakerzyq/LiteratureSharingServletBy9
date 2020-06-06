@@ -17,6 +17,11 @@ public class UserService {
     @Autowired
     UserDao userDao;
 
+    /**
+     * 注册   用户基本信息插入
+     * @param user
+     * @return
+     */
     public User insertUser(User user) {
         int result = userDao.insertUser(user);
         if (result==0){
@@ -26,6 +31,11 @@ public class UserService {
         }
     }
 
+    /**
+     * 注册    插入用户密保
+     * @param pwdProject
+     * @return
+     */
     public PwdProject insertPwdProtect(PwdProject pwdProject) {
         int result = userDao.insertPwdProtect(pwdProject);
         if (result==0){
@@ -34,4 +44,5 @@ public class UserService {
             return pwdProject;
         }
     }
+
 }

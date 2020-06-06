@@ -45,6 +45,11 @@ public class UserController {
         return userDao.findUserByid(id);
     }
 
+    /**
+     * 注册功能，插入用户
+     * @param user
+     * @return
+     */
     @RequestMapping("/user")
     public User insertUser(@RequestBody User user){
         System.out.println(user.getUserid());
@@ -56,6 +61,12 @@ public class UserController {
           user1 = userService.insertUser(user);
         return user1;
     }
+
+    /**
+     * 注册功能，插入用户密保
+     * @param pwdProject
+     * @return
+     */
     @RequestMapping("/pwdprotect")
     public User insertPwdProtect(@RequestBody PwdProject pwdProject) {
         System.out.println(pwdProject.getUserid());
@@ -67,4 +78,16 @@ public class UserController {
         return user1;
     }
 
+    /**
+     * 获取账号对应的密保信息
+     * @param id
+     * @return
+     */
+    @RequestMapping("/findpwd/{id}")
+    public PwdProject GetQuestion(@PathVariable("id") String id){
+        System.out.println("id为："+id);
+        pwdProject1=userDao.findQuestionByid(id);
+        System.out.println(pwdProject1);
+        return pwdProject1;
+    }
 }
