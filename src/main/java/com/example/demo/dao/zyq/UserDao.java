@@ -35,6 +35,9 @@ public interface UserDao {
     @Insert("insert into pwdprotect (question1,answer1,question2,answer2,userid) values(#{question1},#{answer1},#{question2},#{answer2},#{userid})")
     int insertPwdProtect(PwdProject pwdProject);
 
+    @Select("select * from user where userid=#{userid} and password=#{password}")
+    User selectUser(User user);
+
 
     /*@Update("update user set username=#{username} where account=#{account}")
     public int updateUser(Person person);*/

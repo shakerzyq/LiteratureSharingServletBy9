@@ -52,12 +52,7 @@ public class UserController {
      */
     @RequestMapping("/user")
     public User insertUser(@RequestBody User user){
-        System.out.println(user.getUserid());
-        System.out.println(user.getUsername());
-        System.out.println(user.getPassword());
-        System.out.println(user.getSex());
-        System.out.println(user.getAutograph());
-        System.out.println(user.getBirthday());
+        System.out.println(user);
           user1 = userService.insertUser(user);
         return user1;
     }
@@ -69,18 +64,14 @@ public class UserController {
      */
     @RequestMapping("/pwdprotect")
     public User insertPwdProtect(@RequestBody PwdProject pwdProject) {
-        System.out.println(pwdProject.getUserid());
-        System.out.println(pwdProject.getQuestion1());
-        System.out.println(pwdProject.getAnswer1());
-        System.out.println(pwdProject.getQuestion2());
-        System.out.println(pwdProject.getAnswer2());
+        System.out.println(pwdProject);
         pwdProject1 = userService.insertPwdProtect(pwdProject);
         return user1;
     }
 
     /**
      * 获取账号对应的密保信息
-     * @param id
+     * @param id  传递过来的用户账号
      * @return
      */
     @RequestMapping("/findpwd/{id}")
@@ -89,5 +80,19 @@ public class UserController {
         pwdProject1=userDao.findQuestionByid(id);
         System.out.println(pwdProject1);
         return pwdProject1;
+    }
+
+    /**
+     * 登录判定
+     * @param user
+     * @return
+     */
+    @RequestMapping("/login")
+    public String UserLogin(@RequestBody User user){
+
+        String result = userService.loginCheck(user);
+        System.out.println(result);
+        System.out.println(user);
+        return result;
     }
 }

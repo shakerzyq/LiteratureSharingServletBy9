@@ -55,5 +55,16 @@ public class PwdProject {
     public void setAnswer2(String answer2) {
         this.answer2 = answer2;
     }
+
+    @Override
+    public String toString() {
+        return "PwdProject{" +
+                "question1='" + question1 + '\'' +
+                ", answer1='" + answer1 + '\'' +
+                ", question2='" + question2 + '\'' +
+                ", answer2='" + answer2 + '\'' +
+                ", userid='" + userid + '\'' +
+                '}';
+    }
 }
 

@@ -45,4 +45,16 @@ public class UserService {
         }
     }
 
+    /**
+     * 调用持久层,对返回的结果进行逻辑判断
+     * @param user
+     * @return
+     */
+    public String loginCheck(User user) {
+        if(userDao.selectUser(user)!=null){
+            return "账号存在";
+        }else{
+            return null;
+        }
+    }
 }

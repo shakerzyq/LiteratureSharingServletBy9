@@ -64,4 +64,15 @@ public class User {
         this.autograph = autograph;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "userid='" + userid + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", birthday='" + birthday + '\'' +
+                ", sex='" + sex + '\'' +
+                ", autograph='" + autograph + '\'' +
+                '}';
+    }
 }
