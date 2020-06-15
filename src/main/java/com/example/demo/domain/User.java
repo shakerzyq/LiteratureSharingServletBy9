@@ -15,6 +15,15 @@ public class User {
     private String birthday;
     private String sex;
     private String autograph;
+    private int userstatus;
+
+    public int getUserstatus() {
+        return userstatus;
+    }
+
+    public void setUserstatus(int userstatus) {
+        this.userstatus = userstatus;
+    }
 
     public String getUserid() {
         return userid;

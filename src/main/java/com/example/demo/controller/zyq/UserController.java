@@ -62,7 +62,7 @@ public class UserController {
      * @param pwdProject
      * @return
      */
-    @RequestMapping("/pwdprotect")
+    @RequestMapping("/user/pwdprotect")
     public User insertPwdProtect(@RequestBody PwdProject pwdProject) {
         System.out.println(pwdProject);
         pwdProject1 = userService.insertPwdProtect(pwdProject);
@@ -88,11 +88,11 @@ public class UserController {
      * @return
      */
     @RequestMapping("/login")
-    public String UserLogin(@RequestBody User user){
+    public User UserLogin(@RequestBody User user){
 
-        String result = userService.loginCheck(user);
-        System.out.println(result);
+         user1 = userService.loginCheck(user);
+        System.out.println("查询后的结果"+user1);
         System.out.println(user);
-        return result;
+        return user1;
     }
 }

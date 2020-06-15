@@ -17,6 +17,9 @@ public class UserService {
     @Autowired
     UserDao userDao;
 
+    @Autowired
+    User user1;
+
     /**
      * 注册   用户基本信息插入
      * @param user
@@ -50,11 +53,13 @@ public class UserService {
      * @param user
      * @return
      */
-    public String loginCheck(User user) {
+    public User loginCheck(User user) {
+        user1=userDao.selectUser(user);
         if(userDao.selectUser(user)!=null){
-            return "账号存在";
+            return user1;
         }else{
             return null;
         }
+
     }
 }
