@@ -28,4 +28,6 @@ public interface WorkFindDao {
 
     @Select("select workid,workname,userid from work where workname like #{id} or workcontent like #{id}")
     List<WorkForFind> findWorks(String id);
+
+
 }

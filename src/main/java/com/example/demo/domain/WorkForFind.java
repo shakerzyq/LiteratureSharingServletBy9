@@ -11,6 +11,8 @@ public class WorkForFind {
     private String userid;
     private String username;
 
+
+
     public String getUserid() {
         return userid;
     }
@@ -57,8 +59,8 @@ public class WorkForFind {
         return "WorkForFind{" +
                 "workid='" + workid + '\'' +
                 ", workname='" + workname + '\'' +
-                ", writerid='" + userid + '\'' +
-                ", writername='" + username + '\'' +
+                ", userid='" + userid + '\'' +
+                ", username='" + username + '\'' +
                 '}';
     }
 }

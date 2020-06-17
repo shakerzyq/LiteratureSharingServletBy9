@@ -1,11 +1,9 @@
-package com.example.demo.background.entity;
+package com.example.demo.work.entity;
 
-import org.springframework.stereotype.Component;
-
-import java.io.Serializable;
-
-@Component
-public class Work implements Serializable {
+/**
+ * work实体类的升级版,加入了作者名
+ */
+public class WorkUp {
     private String WorkId;
     private String WorkName;
     private String WorkTime;
@@ -86,20 +84,5 @@ public class Work implements Serializable {
 
     public void setUserId(String userId) {
         UserId = userId;
-    }
-
-    @Override
-    public String toString() {
-        return "Work{" +
-                "WorkId='" + WorkId + '\'' +
-                ", WorkName='" + WorkName + '\'' +
-                ", WorkTime='" + WorkTime + '\'' +
-                ", Type='" + Type + '\'' +
-                ", WorkContent='" + WorkContent + '\'' +
-                ", PushStatus=" + PushStatus +
-                ", AuditStatus=" + AuditStatus +
-                ", WorkZan=" + WorkZan +
-                ", UserId='" + UserId + '\'' +
-                '}';
     }
 }
