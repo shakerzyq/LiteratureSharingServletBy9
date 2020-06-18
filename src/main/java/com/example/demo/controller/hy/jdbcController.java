@@ -42,10 +42,10 @@ public class jdbcController {
 		
 	}*/
 	@RequestMapping(value = "/user",method = RequestMethod.GET,produces = "application/json;charset=UTF-8")
-	public User findUserList() {
+	public User findUserList(HttpServletRequest request) {
 		// TODO Auto-generated method stub
-		System.out.println(123);
-		User list = jdbcTemplate.queryForObject("select * from user where userid=?", new BeanPropertyRowMapper<User>(User.class),1);
+		String id=request.getParameter("id");
+		User list = jdbcTemplate.queryForObject("select * from user where userid=?", new BeanPropertyRowMapper<User>(User.class),id);
 		User u=new User();
 		u.setUserid(list.getUserid());
 		u.setUsername(list.getUsername());
