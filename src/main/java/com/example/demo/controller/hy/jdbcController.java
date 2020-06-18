@@ -29,18 +29,6 @@ public class jdbcController {
     public static int count=125;
 	@Autowired
     private JdbcTemplate jdbcTemplate;
-	//@RequestMapping(value = "/user",method = RequestMethod.POST)
-	/*public List<user> query() {
-		String sql="select * from user";
-		List<user> u=jdbcTemplate.query(sql,new Object[]{}, new BeanPropertyRowMapper(user.class));
-		/*u.setId("1");
-		u.setName("何阳");
-		u.setPassword("123");
-		System.out.print("qwewqe");
-		return u;
-
-		
-	}*/
 	@RequestMapping(value = "/user",method = RequestMethod.GET,produces = "application/json;charset=UTF-8")
 	public User findUserList(HttpServletRequest request) {
 		// TODO Auto-generated method stub
