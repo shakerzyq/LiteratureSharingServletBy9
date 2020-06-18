@@ -18,9 +18,13 @@ public class WorkFindService {
     @Autowired
     WorkFindDao workFindDao;
 
+    /**
+     * 通过类型查找文章
+     * @param type
+     * @return
+     */
     public List<WorkForFind> findWorksByType(String type) {
         List<WorkForFind> workForFinds = workFindDao.findWorkByid(type);
-
         for(WorkForFind workForFind:workForFinds){
             System.out.println(workForFind);
             workForFind.setUsername(workFindDao.findUserNameById(workForFind.getUserid()));
@@ -28,10 +32,13 @@ public class WorkFindService {
         return workForFinds;
     }
 
+    /**
+     * 通过名字和内容模糊查询文章
+     * @param id
+     * @return
+     */
     public List<WorkForFind> findWorks(String id) {
-        System.out.println("在service层的id:"+id);
         id="%"+id+"%";
-        System.out.println("在service层的id(改装后):"+id);
         List<WorkForFind> workForFinds = workFindDao.findWorks(id);
 
         for(WorkForFind workForFind:workForFinds){

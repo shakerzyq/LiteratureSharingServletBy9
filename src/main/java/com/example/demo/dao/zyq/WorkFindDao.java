@@ -19,14 +19,16 @@ import java.util.List;
 public interface WorkFindDao {
 
 
-    //验证是否存在账号
-    @Select("select workid,workname,userid from work where type=#{type}")
+    //通过类型查询作品
+    @Select("select workid,workname,userid from work where auditstatus=1 and type=#{type} ")
     public List<WorkForFind> findWorkByid(String type);
 
+    //验证是否存在账号
     @Select("select username from user where userid=#{writerid}")
     String findUserNameById(String writerid);
 
-    @Select("select workid,workname,userid from work where workname like #{id} or workcontent like #{id}")
+    //模糊查询作品
+    @Select("select workid,workname,userid from work where auditstatus=1 and workname like #{id}")
     List<WorkForFind> findWorks(String id);
 
 

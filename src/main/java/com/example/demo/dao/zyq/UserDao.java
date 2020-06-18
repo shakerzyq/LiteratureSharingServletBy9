@@ -21,11 +21,9 @@ public interface UserDao {
     @Select("select * from user where userid=#{id}")
     public User findUserByid(String id);
 
+    //查询用户的密保
     @Select("select * from pwdprotect where userid=#{id}")
     public PwdProject findQuestionByid(String id);
-
-  /*  @Select("delete from department where account=#{id}")
-    public int deleteUserByid(String id);*/
 
     //插入注册信息
     @Insert("insert into user (userid,username,password,birthday,sex,autograph) values(#{userid},#{username},#{password},#{birthday},#{sex},#{autograph})")
@@ -35,10 +33,7 @@ public interface UserDao {
     @Insert("insert into pwdprotect (question1,answer1,question2,answer2,userid) values(#{question1},#{answer1},#{question2},#{answer2},#{userid})")
     int insertPwdProtect(PwdProject pwdProject);
 
+    //验证账号密码是否正确
     @Select("select * from user where userid=#{userid} and password=#{password}")
     User selectUser(User user);
-
-
-    /*@Update("update user set username=#{username} where account=#{account}")
-    public int updateUser(Person person);*/
 }

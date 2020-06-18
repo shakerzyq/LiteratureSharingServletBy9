@@ -26,7 +26,7 @@ public interface WorkDao {
     @Select("select * from work where workid=#{workid}")
     public Work queryWork(String WorkId);
     //根据作品推送状态查询作品信息
-    @Select("select workid,workname,userid from work where pushstatus = 1")
+    @Select("select workid,workname,userid from work where pushstatus=1 and auditstatus=1")
     public List<WorkForFind> queryPush();
 
     //作品点赞数

@@ -21,26 +21,30 @@ public class WorkFindController {
     @Autowired
     WorkFindService workFindService;
 
-
-
+    /**
+     * 通过类型查找文章
+     * @param type
+     * @return
+     */
     @RequestMapping("/FindWorksByType/{id}")
     @ResponseBody
     public List<WorkForFind> findWorksByType(@PathVariable("id") String type){
-        System.out.println("类型为"+type);
         List<WorkForFind> workForFinds = workFindService.findWorksByType(type);
-        System.out.println(workForFinds);
         for (WorkForFind workForFind:workForFinds){
             System.out.println("controller:   "+workForFind);
         }
         return workForFinds;
     }
 
+    /**
+     * 通过名字和内容模糊查询文章
+     * @param id
+     * @return
+     */
     @RequestMapping("/FindWorks/{id}")
     @ResponseBody
     public List<WorkForFind> findWorksUp(@PathVariable("id") String id){
-        System.out.println("搜索的内容为"+id);
         List<WorkForFind> workForFinds = workFindService.findWorks(id);
-        System.out.println(workForFinds);
         for (WorkForFind workForFind:workForFinds){
             System.out.println(workForFind);
         }

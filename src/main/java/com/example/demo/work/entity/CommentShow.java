@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 /**
  * @author 陆明鑫
  * @date 2020/6/9
- * 文件描述:作品评论
+ * 文件描述:作品评论   只显示必要信息
  */
 
 @Component

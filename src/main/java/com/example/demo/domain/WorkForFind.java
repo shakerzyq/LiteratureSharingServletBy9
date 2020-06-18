@@ -3,7 +3,7 @@ package com.example.demo.domain;
 /**
  * @author 周杨清
  * @date 2020/6/12
- * 文件描述:
+ * 文件描述:  只存有部分信息的作品实体类
  */
 public class WorkForFind {
     private String workid;

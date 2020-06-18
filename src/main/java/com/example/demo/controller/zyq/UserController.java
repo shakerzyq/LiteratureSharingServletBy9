@@ -41,7 +41,6 @@ public class UserController {
      */
     @RequestMapping("/user/{id}")
     public User getPerson(@PathVariable("id") String id){
-        System.out.println("id为："+id);
         return userDao.findUserByid(id);
     }
 
@@ -52,7 +51,6 @@ public class UserController {
      */
     @RequestMapping("/user")
     public User insertUser(@RequestBody User user){
-        System.out.println(user);
           user1 = userService.insertUser(user);
         return user1;
     }
@@ -64,7 +62,6 @@ public class UserController {
      */
     @RequestMapping("/user/pwdprotect")
     public User insertPwdProtect(@RequestBody PwdProject pwdProject) {
-        System.out.println(pwdProject);
         pwdProject1 = userService.insertPwdProtect(pwdProject);
         return user1;
     }
@@ -76,9 +73,7 @@ public class UserController {
      */
     @RequestMapping("/findpwd/{id}")
     public PwdProject GetQuestion(@PathVariable("id") String id){
-        System.out.println("id为："+id);
         pwdProject1=userDao.findQuestionByid(id);
-        System.out.println(pwdProject1);
         return pwdProject1;
     }
 
@@ -89,10 +84,7 @@ public class UserController {
      */
     @RequestMapping("/login")
     public User UserLogin(@RequestBody User user){
-
          user1 = userService.loginCheck(user);
-        System.out.println("查询后的结果"+user1);
-        System.out.println(user);
         return user1;
     }
 }

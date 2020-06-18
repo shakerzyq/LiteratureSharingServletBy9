@@ -26,42 +26,29 @@ public class WorkController {
 
 
 
-
+    //查询作品详细内容
     @RequestMapping("/work/{id}")
     public Work queryWork(@PathVariable("id") String workid){
-
-        System.out.println("作品iD:   "+workid);
-
         Work work = workDao.queryWork(workid);
-        System.out.println("作品内容:"+work);
         return work;
     }
-//推荐
+    //推荐
     @RequestMapping("/push")
     @ResponseBody
     public List<WorkForFind> queryPush(){
-        System.out.println("推荐界面");
         List<WorkForFind> works = workDao.queryPush();
-
         for(WorkForFind workForFind:works){
             System.out.println(workForFind);
             workForFind.setUsername(workFindDao.findUserNameById(workForFind.getUserid()));
         }
-        System.out.println("查询出的推荐内容:"+works);
-        //json.put("data",works);
-
         return works;
-
     }
 
     //点赞操作
     @RequestMapping("/dianzan/{id}")
     public String dianzan(@PathVariable("id") String num){
-        System.out.println("传递过来的点赞信息为:  "+num);
         String[] strlist = num.split(",");
         workDao.dianzan(strlist[0],strlist[1]);
         return "点赞成功";
     }
-
-
 }

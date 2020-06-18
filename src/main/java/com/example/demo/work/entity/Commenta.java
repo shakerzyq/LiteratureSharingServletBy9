@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 /**
  * @author 周杨清
  * @date 2020/6/17
- * 文件描述:
+ * 文件描述:  评论表  用于插入评论
  */
 
 @Component

@@ -27,10 +27,7 @@ public class CommentService {
 
     //插入评论
     public String commitComment(Commenta commenta) {
-
-        /*commenta.setContent(comment.getContent());
-        commenta.setViewerid(comment.getViewerid());
-        commenta.setDate(comment.getDate());*/
+        //用于给评论生成随机id
         String x="";
         for(int n=0;n<10;n++ ) {
             x+=(int)(10*(Math.random()));
@@ -54,8 +51,4 @@ public class CommentService {
         return comments;
 
     }
-
-    //查询评论
-
-
 }

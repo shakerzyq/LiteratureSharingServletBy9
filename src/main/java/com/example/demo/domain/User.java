@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 /**
  * @author 周杨清
  * @date 2020/6/5
- * 文件描述:
+ * 文件描述:用户实体类
  */
 @Component
 public class User {
