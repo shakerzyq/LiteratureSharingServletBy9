@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * @author 周杨清
  * @date 2020/6/12
- * 文件描述:
+ * 文件描述: 查询作品
  */
 @Controller
 public class WorkFindController {
@@ -30,9 +30,6 @@ public class WorkFindController {
     @ResponseBody
     public List<WorkForFind> findWorksByType(@PathVariable("id") String type){
         List<WorkForFind> workForFinds = workFindService.findWorksByType(type);
-        for (WorkForFind workForFind:workForFinds){
-            System.out.println("controller:   "+workForFind);
-        }
         return workForFinds;
     }
 
@@ -45,9 +42,6 @@ public class WorkFindController {
     @ResponseBody
     public List<WorkForFind> findWorksUp(@PathVariable("id") String id){
         List<WorkForFind> workForFinds = workFindService.findWorks(id);
-        for (WorkForFind workForFind:workForFinds){
-            System.out.println(workForFind);
-        }
         return workForFinds;
     }
 }

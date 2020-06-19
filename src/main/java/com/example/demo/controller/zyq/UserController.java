@@ -3,7 +3,6 @@ package com.example.demo.controller.zyq;
 import com.example.demo.dao.zyq.UserDao;
 import com.example.demo.domain.PwdProject;
 import com.example.demo.domain.User;
-//import com.example.demo.service.zyq.UserService;
 import com.example.demo.service.zyq.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -74,6 +73,7 @@ public class UserController {
     @RequestMapping("/findpwd/{id}")
     public PwdProject GetQuestion(@PathVariable("id") String id){
         pwdProject1=userDao.findQuestionByid(id);
+        System.out.println(pwdProject1.getUserid());
         return pwdProject1;
     }
 
@@ -86,5 +86,16 @@ public class UserController {
     public User UserLogin(@RequestBody User user){
          user1 = userService.loginCheck(user);
         return user1;
+    }
+
+    /**
+     * 查询用户个数
+     * @return
+     */
+    @RequestMapping("/usernum")
+    public String FindUserNum(){
+        int num = userDao.selectUsernum();
+        String count = String.valueOf(num);
+        return count;
     }
 }

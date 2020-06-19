@@ -22,7 +22,7 @@ public interface UserDao {
     public User findUserByid(String id);
 
     //查询用户的密保
-    @Select("select * from pwdprotect where userid=#{id}")
+    @Select("select question1,answer1,question2,answer2,userid from pwdprotect where userid=#{id}")
     public PwdProject findQuestionByid(String id);
 
     //插入注册信息
@@ -36,4 +36,8 @@ public interface UserDao {
     //验证账号密码是否正确
     @Select("select * from user where userid=#{userid} and password=#{password}")
     User selectUser(User user);
+
+    //查询用户数
+    @Select("select count(userid) from user")
+    public int selectUsernum();
 }
